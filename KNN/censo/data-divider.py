@@ -17,15 +17,12 @@ previsores[:, 8] = labelencoder_previsores.fit_transform(previsores[:, 8])
 previsores[:, 9] = labelencoder_previsores.fit_transform(previsores[:, 9])
 previsores[:, 13] = labelencoder_previsores.fit_transform(previsores[:, 13])
 
-#item1
 onehotencoder = OneHotEncoder(categorical_features = [1,3,5,6,7,8,9,13])
 previsores = onehotencoder.fit_transform(previsores).toarray()
 
-#item2
 labelencoder_classe = LabelEncoder()
 classe = labelencoder_classe.fit_transform(classe)
 
-#item3
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 previsores = scaler.fit_transform(previsores)
@@ -47,4 +44,4 @@ print(precisao)
 print(matriz)
 
 import collections
-collections.Counter(classe_teste)
+print(collections.Counter(classe_teste))
